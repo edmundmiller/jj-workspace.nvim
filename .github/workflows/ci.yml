@@ -16,6 +16,12 @@ jobs:
             _neovim
           key: ${{ runner.os }}-x64-${{ hashFiles('todays-date') }}
 
+      - name: Install jj
+        run: |
+          curl -L https://github.com/martinvonz/jj/releases/download/v0.23.0/jj-v0.23.0-x86_64-unknown-linux-musl.tar.gz | tar xz
+          sudo mv jj /usr/local/bin/
+          jj --version
+
       - name: Prepare
         run: |
           mkdir -p ~/.local/share/nvim/site/pack/vendor/start
@@ -39,6 +45,12 @@ jobs:
           path: |
             build
           key: ${{ runner.os }}-appimage-${{ hashFiles('todays-date') }}
+
+      - name: Install jj
+        run: |
+          curl -L https://github.com/martinvonz/jj/releases/download/v0.23.0/jj-v0.23.0-x86_64-unknown-linux-musl.tar.gz | tar xz
+          sudo mv jj /usr/local/bin/
+          jj --version
 
       - name: Prepare
         run: |
